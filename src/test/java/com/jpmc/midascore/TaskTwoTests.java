@@ -21,6 +21,7 @@ class TaskTwoTests {
     private FileLoader fileLoader;
 
     @Test
+    @org.junit.jupiter.api.Timeout(value = 60) // 60 seconds timeout
     void task_two_verifier() throws InterruptedException {
         String[] transactionLines = fileLoader.loadStrings("/test_data/poiuytrewq.uiop");
         for (String transactionLine : transactionLines) {
@@ -32,10 +33,12 @@ class TaskTwoTests {
         logger.info("----------------------------------------------------------");
         logger.info("use your debugger to watch for incoming transactions");
         logger.info("kill this test once you find the answer");
-        while (true) {
+        // Run for a finite time instead of infinite loop
+        for (int i = 0; i < 2; i++) {
             Thread.sleep(20000);
             logger.info("...");
         }
+        logger.info("Test completed - check the transaction processing in logs above");
     }
 
 }
