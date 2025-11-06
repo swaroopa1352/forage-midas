@@ -12,3 +12,10 @@ spring:
       ddl-auto: update
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+incentive:
+  url: http://localhost:8081/incentive
+server:
+  port: 33400
